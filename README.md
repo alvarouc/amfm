@@ -7,4 +7,4 @@ Results from amfm1d demo
 ![alt text](amfm1d.png "Results of amfm1d.py")
 
 Results from amfm2d demo
-![alt text](amfm2d.pdf "Results of amfm1d.py")
+![alt text](amfm2d.png "Results of amfm2d.py")
