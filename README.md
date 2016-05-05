@@ -11,8 +11,8 @@ Results from amfm2d demo
 
 Results from amfm3d demo
 ## Chirp 3d
-![3d](https://github.com/alvarouc/amfm/raw/master/chirp3d.gif)
+![3d](https://github.com/alvarouc/amfm/raw/master/amfm/chirp3d.gif)
 ## Instantaneous phase
-![3d](https://github.com/alvarouc/amfm/raw/master/chirp3d_ip.gif)
+![3d](https://github.com/alvarouc/amfm/raw/master/amfm/chirp3d_ip.gif)
 ## Instantaneous frequency
-![3d](https://github.com/alvarouc/amfm/raw/master/chirp3d_if.gif)
+![3d](https://github.com/alvarouc/amfm/raw/master/amfm/chirp3d_if.gif)
