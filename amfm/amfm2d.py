@@ -2,13 +2,13 @@ import numpy as np
 import scipy.signal as ss
 import scipy.ndimage.filters as sd
 import matplotlib.pyplot as plt
-import Image
 
 
-def chirp2d(N=500):
-    x,y = np.meshgrid(np.linspace(-.49,.49,N),
-                      np.linspace(-.49,.49,N))
-    im = np.sin((x**2+y**2)*N*np.pi)
+def chirp2d(N=500, max_freq=np.pi/2):
+
+    grid = np.linspace(-max_freq,max_freq,N)
+    x,y = np.meshgrid(grid, grid)
+    im = np.sin((x**2+y**2)*N/np.pi)
     return(im)
 
 def genFilters():
@@ -79,7 +79,7 @@ def amfm(im):
     bp = genFilters()
     imbp= applySeparableFilterBank(im,bp)
 
-    out = map(qea, imbp)
+    out = list(map(qea, imbp))
 
     ias= np.array([ia for ia,ip,ifRow,ifCol in out])
     ifRows = np.array([ifRow for ia,ip,ifRow,ifCol in out])
@@ -91,17 +91,17 @@ def amfm(im):
 
     # Applying DCA
     temp = np.zeros(idx.shape)
-    for i in range(len(out)):
+    for i in range(len(imbp)):
         temp[idx==i]=ifCols[i,...][idx==i]
     ifCol = np.copy(temp)
 
     temp = np.zeros(idx.shape)
-    for i in range(len(out)):
+    for i in range(len(imbp)):
         temp[idx==i]=ifRows[i,...][idx==i]
     ifRow = np.copy(temp)
 
     temp = np.zeros(idx.shape)
-    for i in range(len(out)):
+    for i in range(len(imbp)):
         temp[idx==i]=ips[i,...][idx==i]
     ip = np.copy(temp)
 
